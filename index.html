@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eskiyer Balık Restorant - Yalıkavak'ta gün batımı, rakı-balık, meze ve deniz ürünleri deneyimi.">
+  <title>Eskiyer Balık Restorant | Yalıkavak Rakı Balık Deneyimi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #06090A;
+      --navy: #0D171B;
+      --sea: #12333A;
+      --champagne: #D8BD7A;
+      --pearl: #F6F1E8;
+      --muted: rgba(246, 241, 232, 0.72);
+      --line: rgba(216, 189, 122, 0.22);
+      --panel: rgba(13, 23, 27, 0.86);
+      --heading: "Playfair Display", Georgia, serif;
+      --body: "Inter", Arial, sans-serif;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--pearl);
+      font-family: var(--body);
+      line-height: 1.6;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      background-color: var(--navy);
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: min(1160px, calc(100% - 32px));
+    }
+
+    .section {
+      padding: 94px 0;
+      position: relative;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--heading);
+      letter-spacing: 0;
+      line-height: 1.03;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3.35rem, 9.5vw, 8.1rem);
+      max-width: 1040px;
+    }
+
+    h2 {
+      font-size: clamp(2.45rem, 6vw, 5.3rem);
+      max-width: 780px;
+    }
+
+    h3 {
+      font-size: 1.72rem;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .eyebrow {
+      color: var(--champagne);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      align-items: center;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=95") center/cover no-repeat;
+      background-color: #0D171B;
+      display: flex;
+      isolation: isolate;
+      min-height: 100svh;
+      padding: 92px 0 74px;
+      position: relative;
+    }
+
+    .hero::before,
+    .reservation::before {
+      background: rgba(0, 0, 0, 0.5);
+      content: "";
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .hero::after {
+      background: rgba(6, 9, 10, 0.64);
+      bottom: 0;
+      content: "";
+      height: 36%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      left: 50%;
+      padding: 24px 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: min(1160px, calc(100% - 32px));
+      z-index: 5;
+    }
+
+    .brand {
+      font-family: var(--heading);
+      font-size: 1.32rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: rgba(246, 241, 232, 0.76);
+      font-size: 0.86rem;
+      font-weight: 800;
+      transition: color 220ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--champagne);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--line);
+      color: var(--champagne) !important;
+      min-height: 42px;
+      padding: 10px 15px;
+    }
+
+    .hero-content {
+      max-width: 1040px;
+      padding-top: 50px;
+    }
+
+    .rating {
+      align-items: center;
+      background: rgba(6, 9, 10, 0.6);
+      border: 1px solid var(--line);
+      color: var(--pearl);
+      display: inline-flex;
+      font-size: 0.92rem;
+      font-weight: 800;
+      min-height: 42px;
+      padding: 0 15px;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero p {
+      font-size: clamp(1.04rem, 2vw, 1.34rem);
+      margin-top: 22px;
+      max-width: 690px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      align-items: center;
+      border: 1px solid var(--champagne);
+      display: inline-flex;
+      font-size: 0.94rem;
+      font-weight: 900;
+      justify-content: center;
+      min-height: 56px;
+      min-width: 178px;
+      padding: 0 24px;
+      transition: background 220ms ease, color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn-primary {
+      background: var(--champagne);
+      box-shadow: 0 18px 56px rgba(216, 189, 122, 0.2);
+      color: var(--ink);
+    }
+
+    .btn-secondary {
+      background: rgba(6, 9, 10, 0.32);
+      color: var(--champagne);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 24px 70px rgba(216, 189, 122, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: var(--champagne);
+      color: var(--ink);
+    }
+
+    .info-strip {
+      background: var(--ink);
+      border-bottom: 1px solid rgba(216, 189, 122, 0.12);
+      border-top: 1px solid rgba(216, 189, 122, 0.12);
+      padding: 20px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .info-card,
+    .dish-card,
+    .review-card {
+      background: var(--panel);
+      border: 1px solid rgba(216, 189, 122, 0.15);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card {
+      align-items: center;
+      display: flex;
+      gap: 14px;
+      min-height: 90px;
+      padding: 18px;
+    }
+
+    .info-card svg {
+      color: var(--champagne);
+      flex: 0 0 26px;
+      height: 26px;
+      width: 26px;
+    }
+
+    .info-card span {
+      color: rgba(246, 241, 232, 0.58);
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .info-card strong {
+      color: var(--pearl);
+      display: block;
+      font-size: 0.93rem;
+      line-height: 1.34;
+    }
+
+    .story {
+      background: var(--navy);
+    }
+
+    .split {
+      align-items: center;
+      display: grid;
+      gap: 48px;
+      grid-template-columns: 0.92fr 1.08fr;
+    }
+
+    .story-text p {
+      font-size: 1.04rem;
+      margin-top: 22px;
+      max-width: 630px;
+    }
+
+    .quote {
+      border-left: 2px solid var(--champagne);
+      color: var(--pearl);
+      font-family: var(--heading);
+      font-size: 1.8rem;
+      line-height: 1.16;
+      margin-top: 28px;
+      padding-left: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 0.72fr;
+      min-height: 560px;
+    }
+
+    .gallery img {
+      border: 1px solid rgba(216, 189, 122, 0.16);
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .menu {
+      background: var(--ink);
+    }
+
+    .section-head {
+      align-items: end;
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 0.92fr 1fr;
+      margin-bottom: 42px;
+    }
+
+    .section-head p {
+      font-size: 1.02rem;
+      max-width: 620px;
+    }
+
+    .dish-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .dish-card {
+      overflow: hidden;
+      transition: border-color 220ms ease, transform 220ms ease;
+    }
+
+    .dish-card:hover {
+      border-color: rgba(216, 189, 122, 0.5);
+      transform: translateY(-6px);
+    }
+
+    .dish-card img {
+      aspect-ratio: 4 / 3;
+      height: auto;
+      width: 100%;
+    }
+
+    .dish-body {
+      padding: 23px;
+    }
+
+    .dish-body::before {
+      background: var(--champagne);
+      content: "";
+      display: block;
+      height: 2px;
+      margin-bottom: 18px;
+      width: 46px;
+    }
+
+    .dish-body h3 {
+      margin-bottom: 9px;
+    }
+
+    .dish-body p {
+      font-size: 0.93rem;
+    }
+
+    .experience {
+      background: var(--navy);
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.18fr 0.82fr;
+      margin-top: 42px;
+    }
+
+    .experience-grid img {
+      border: 1px solid rgba(216, 189, 122, 0.16);
+      height: 100%;
+      min-height: 460px;
+      width: 100%;
+    }
+
+    .experience-panel {
+      align-content: center;
+      background: rgba(6, 9, 10, 0.62);
+      border: 1px solid rgba(216, 189, 122, 0.16);
+      display: grid;
+      padding: 42px;
+    }
+
+    .experience-panel h3 {
+      font-size: 2.35rem;
+      margin-bottom: 18px;
+    }
+
+    .experience-panel ul {
+      color: var(--muted);
+      display: grid;
+      gap: 13px;
+      list-style: none;
+      margin: 26px 0 0;
+      padding: 0;
+    }
+
+    .experience-panel li {
+      border-top: 1px solid rgba(216, 189, 122, 0.13);
+      padding-top: 13px;
+    }
+
+    .reviews {
+      background: var(--ink);
+    }
+
+    .review-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 42px;
+    }
+
+    .review-card {
+      border-left: 3px solid var(--champagne);
+      padding: 28px;
+    }
+
+    .review-card p {
+      color: rgba(246, 241, 232, 0.88);
+      font-family: var(--heading);
+      font-size: 1.32rem;
+      line-height: 1.3;
+    }
+
+    .review-card strong {
+      color: var(--champagne);
+      display: block;
+      font-size: 0.92rem;
+      margin-top: 22px;
+    }
+
+    .reservation {
+      background: url("https://images.unsplash.com/photo-1559339352-11d035aa65de?w=2400&q=95") center/cover no-repeat;
+      background-color: #0D171B;
+      isolation: isolate;
+      min-height: 560px;
+      padding: 116px 0;
+      position: relative;
+      text-align: center;
+    }
+
+    .reservation .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reservation p:not(.eyebrow) {
+      font-size: 1.14rem;
+      margin-top: 20px;
+      max-width: 620px;
+    }
+
+    .footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(216, 189, 122, 0.15);
+      padding: 44px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 1.15fr 1fr 0.78fr;
+    }
+
+    .footer h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 14px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-button {
+      border: 1px solid var(--line);
+      color: var(--champagne) !important;
+      display: inline-flex !important;
+      font-weight: 900;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 16px;
+      transition: background 220ms ease, color 220ms ease;
+    }
+
+    .footer-button:hover {
+      background: var(--champagne);
+      color: var(--ink) !important;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(216, 189, 122, 0.1);
+      color: rgba(246, 241, 232, 0.48);
+      font-size: 0.84rem;
+      margin-top: 34px;
+      padding-top: 24px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 720ms ease, transform 720ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .info-grid,
+      .dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split,
+      .section-head,
+      .experience-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        min-height: auto;
+      }
+
+      .gallery > img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .gallery-stack img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid img {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .brand {
+        font-size: 1.08rem;
+      }
+
+      .nav-cta {
+        font-size: 0.78rem !important;
+        min-height: 38px;
+        padding: 8px 12px;
+      }
+
+      .button-row {
+        width: 100%;
+      }
+
+      .btn {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .info-grid,
+      .dish-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-panel {
+        padding: 28px;
+      }
+
+      .rating {
+        font-size: 0.84rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="Ana navigasyon">
+      <a class="brand" href="#top">Eskiyer Balık Restorant</a>
+      <div class="nav-links">
+        <a href="#menu">Menü</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a class="nav-cta" href="tel:02523136053">Rezervasyon</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="rating">⭐ 4.3 · 392 Değerlendirme · ₺2.000+ kişi başı</div>
+        <h1>Yalıkavak'ta Deniz, Meze ve Gün Batımı</h1>
+        <p>Eskiyer Balık Restorant; taze balık, özenli mezeler, rakı sofrası ve gün batımı keyfini Bodrum'un sakin lüksüyle birleştirir.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="tel:02523136053">Rezervasyon İçin Ara</a>
+          <a class="btn btn-secondary" href="#menu">Menüyü Keşfet</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="info-strip" aria-label="Hızlı bilgiler">
+      <div class="container info-grid">
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+          <div><span>Adres</span><strong>Geriş Altı Mahallesi, Çökertme Cd. No:44, Bodrum</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div><span>Saatler</span><strong>24 saat açık</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6h14v12H5z" stroke="currentColor" stroke-width="1.7"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div><span>Ortalama</span><strong>₺2.000+ kişi başı</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 4.5 10 7.3 8.1 9.2c.8 1.8 2.9 4 4.7 4.7l1.9-1.9 2.8 2.8-1.2 2.1c-.4.8-1.4 1.2-2.2.9-4.1-1.3-7.5-4.7-8.8-8.8-.3-.8.1-1.8.9-2.2l1-1.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div><span>Telefon</span><strong><a href="tel:02523136053">(0252) 313 60 53</a></strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story">
+      <div class="container split">
+        <div class="story-text reveal">
+          <p class="eyebrow">Rakı-balık ritüeli</p>
+          <h2>Mütevazı, Kaliteli, Deniz Kadar Ferah</h2>
+          <p>Eskiyer Balık Restorant'ta masa; taze mezelerle açılır, doğru pişirilmiş balıkla devam eder, sohbetin uzadığı Bodrum gecesine karışır.</p>
+          <div class="quote">Ahtapot ızgara, deniz ürünlü erişte, günlük balık ve imza tatlılar; Yalıkavak akşamına zarif bir final verir.</div>
+        </div>
+
+        <div class="gallery reveal">
+          <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=1600&q=95" width="1600" height="1800" loading="lazy" alt="Taze deniz ürünleri ve balık tabağı" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+          <div class="gallery-stack">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1200&q=95" width="1200" height="900" loading="lazy" alt="Rakı balık sofrası atmosferinde şık masa düzeni" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=95" width="1200" height="900" loading="lazy" alt="Deniz kenarında gün batımı restoran masaları" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Menüde öne çıkanlar</p>
+            <h2>Denizden Masaya Gelenler</h2>
+          </div>
+          <p>Balık, meze ve rakı sofrasının en sevilen eşleşmeleri; sade, taze ve gösterişsiz bir ustalıkla servis edilir.</p>
+        </div>
+
+        <div class="dish-grid">
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=1000&q=95" width="1000" height="750" loading="lazy" alt="Doğru pişirilmiş taze balık filetosu" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+            <div class="dish-body">
+              <h3>Günün Balığı</h3>
+              <p>Mevsimine göre seçilen, doğru ateşte pişen taze lezzet.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1000&q=95" width="1000" height="750" loading="lazy" alt="Izgara ahtapot ve zarif deniz ürünü tabağı" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+            <div class="dish-body">
+              <h3>Ahtapot Izgara</h3>
+              <p>Yumuşak dokulu, deniz kokusunu taşıyan imza tabak.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1000&q=95" width="1000" height="750" loading="lazy" alt="Kremalı deniz ürünlü erişte ve makarna tabağı" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+            <div class="dish-body">
+              <h3>Deniz Ürünlü Erişte</h3>
+              <p>Kremalı, zengin ve müdavimlerin özellikle önerdiği lezzet.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1000&q=95" width="1000" height="750" loading="lazy" alt="Pişmaniye dokusunu çağrıştıran şık cheesecake tatlısı" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+            <div class="dish-body">
+              <h3>Pişmaniyeli Cheesecake</h3>
+              <p>Deniz sofrasından sonra hafif, şaşırtıcı ve tatlı bir final.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Deneyim</p>
+            <h2>Gün Batımı İçin Doğru Masa</h2>
+          </div>
+          <p>İçeride servis, uzun sohbetler ve 24 saat açık olmanın verdiği rahatlık; Eskiyer'i Yalıkavak'ta plansız bile gidilebilecek seçkin bir balık adresine dönüştürür.</p>
+        </div>
+
+        <div class="experience-grid reveal">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=95" width="1800" height="1100" loading="lazy" alt="Loş ışıklı şık restoran iç mekanı" onerror="this.style.background='linear-gradient(135deg, #0D171B, #12333A)'">
+          <div class="experience-panel">
+            <h3>Sakin lüks, iyi servis, taze lezzet.</h3>
+            <p>Yalıkavak'ta hem kaliteli hem mütevazı bir balık restoranı arayan misafirler için güçlü bir seçenek.</p>
+            <ul>
+              <li>4.3 puan ve 392 değerlendirme ile güçlü sosyal kanıt</li>
+              <li>Meze, balık, ahtapot ızgara, rakı ve özel tatlılar</li>
+              <li>Gün batımı ve uzun akşam sofraları için ideal atmosfer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="yorumlar">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Misafir yorumları</p>
+            <h2>Deniz Sofrası Hatırlanır</h2>
+          </div>
+          <p>Gerçek misafir anlatımlarından ilham alan yorumlar; lezzet, kalite ve gün batımı atmosferini öne çıkarır.</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card reveal">
+            <p>"Yalıkavak'ta hem mütevazı hem kaliteli bir mekan. Mezeler lezzetli, balıklar doğru pişiriliyor."</p>
+            <strong>Tuğba Y. ⭐⭐⭐⭐⭐</strong>
+          </article>
+          <article class="review-card reveal">
+            <p>"Bodrum'da da aynı kalite devam ediyor. Deniz ürünlü erişteyi ve pişmaniyeli cheesecake'i mutlaka deneyin."</p>
+            <strong>Umut E. ⭐⭐⭐⭐⭐</strong>
+          </article>
+          <article class="review-card reveal">
+            <p>"Çalışanların ilgisi, mezeler, balıklar her şey harikaydı. Gün batımında keyif yapmak isteyenler tercih edebilir."</p>
+            <strong>Güzin A. ⭐⭐⭐⭐⭐</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation">
+      <div class="container reveal">
+        <p class="eyebrow">Rezervasyon ve yol tarifi</p>
+        <h2>Bu Akşam Deniz Kenarında Buluşalım</h2>
+        <p>Rakı-balık sofrası, taze mezeler ve gün batımı için Eskiyer Balık Restorant'a şimdi ulaşın.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="tel:02523136053">Ara: (0252) 313 60 53</a>
+          <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Eskiyer%20Balik%20Restorant%20Geri%C5%9F%20%C3%87%C3%B6kertme%20Cd.%20No%3A44%20Bodrum" target="_blank" rel="noopener">Yol Tarifi Al</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Eskiyer Balık Restorant</h2>
+          <p>Yalıkavak'ta rakı-balık, meze ve gün batımı deneyimi.</p>
+        </div>
+        <div>
+          <p>Geriş Altı Mahallesi, Geriş, Çökertme Cd. No:44, Bodrum/Muğla</p>
+          <p>24 saat açık</p>
+          <a href="tel:02523136053">(0252) 313 60 53</a>
+        </div>
+        <div>
+          <a class="footer-button" href="https://www.google.com/maps/search/?api=1&query=Eskiyer%20Balik%20Restorant%20Geri%C5%9F%20%C3%87%C3%B6kertme%20Cd.%20No%3A44%20Bodrum" target="_blank" rel="noopener">Google Haritalar</a>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Eskiyer Balık Restorant Yalıkavak</div>
+    </div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -70px 0px"
+    });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
